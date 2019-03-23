@@ -1,1 +1,50 @@
-// Intentionally left blank.
+import React, { Component } from "react";
+import Counter from './Counter';
+
+export default class CounterContainer extends Component {
+  state = {
+      count: 0
+    };
+  
+  handleIncrement=()=>{
+    this.setState({
+      count: this.state.count + 1
+    })
+  }
+
+  handleDecrement=()=>{
+    this.setState({
+      count: this.state.count -1 
+    })
+  }
+
+  reset=()=>{
+    this.setState({
+      count: 0 
+    })
+  }
+
+  render() {
+    const { count } = this.state;
+    return (
+       <Counter
+       count={count}
+       onIncrement={this.handleIncrement}
+       onDecrement={this.handleDecrement}
+       onReset={this.reset}
+       /> 
+    //   <section className="Counter">
+    //     <h1>Count: {count}</h1>
+    //     <button onClick={this.handleIncrement} className="full-width">
+    //       Increment
+    //     </button>
+    //     <button onClick={this.handleDecrement} className="full-width">
+    //       Decrement
+    //     </button>
+    //     <button onClick={this.reset} className="full-width">
+    //       Reset
+    //     </button>
+    //   </section>
+    );
+  }
+}
